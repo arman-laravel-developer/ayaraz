@@ -184,6 +184,11 @@ Route::group(['middleware' => 'isAdmin'], function(){
     Route::get('/admin/about', [\App\Http\Controllers\Admin\SettingController::class, 'adminAbout']);
     Route::post('/admin/about/store', [\App\Http\Controllers\Admin\SettingController::class, 'adminAboutStore'])->name('admin.about.store');
 
+    //Gallery Image...
+    Route::get('/gallery-image/delete/{id}', [\App\Http\Controllers\Admin\ProductController::class, 'galleryImageDelete']);
+    Route::get('/gallery-image/edit/{id}', [\App\Http\Controllers\Admin\ProductController::class, 'galleryImageEdit']);
+    Route::post('/gallery-image/update/{id}', [\App\Http\Controllers\Admin\ProductController::class, 'galleryImageUpdate']);
+
     //============== Blog ==================//
     Route::group(['prefix' => 'blog'], function(){
         Route::get('/list', [\App\Http\Controllers\Admin\BlogController::class, 'index']);
